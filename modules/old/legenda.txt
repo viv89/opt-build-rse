@@ -1,0 +1,12 @@
+optimizationClasses2 include la potenza minima di avviamento della pompa di calore
+optimizationClasses3 include la durata minima di funzionamento della pompa di calore (30 minuti)
+optimizationClasses4 include la versione corretta della definizione dello stato di avviamento della pdc e la potenza minima dei fancoil
+aggiornata la correlazione tra potenza percentuale e frequenza
+
+optimizationClasses6b include due termini nella f.o. per penalizzare le deviazioni dall'ottimizzazione precedente
+optimizationClasses6c non considera le deviazioni dall'ottimizzazione dell'ora precedente se questa non è disponibile (es: all'avvio, oppure se prima andava in funzione termostato)
+optimizationClasses7 cambio vincoli sul fancoil
+
+calibrationClasses4 corregge data e ora nell'indice di cs.history()
+calibrationClasses5 ha la possibilità di ripartire dai parametri nominali oppure dagli ultimi parametri calibrati se questi vengono salvati in cartella lastpars 
+

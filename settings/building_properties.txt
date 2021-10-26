@@ -1,0 +1,1 @@
+{'A_heated' : 59.2,  'perimeter': [0,0,6.8,0,14.3,0,6.8,0],  'n_floors' : 1,  'U_walls'  : 0.21,   'U_windows': 1.4,  'U_roof'   : 0.21,   'U_ground' : 0.45,  'A_windows': [0,0,2.3,0,7.3,0,0,0],  'ACR' : 0.3,  'weight'   : 'light',   'HVAC' : 'fancoils',   'avg_heat_gain': 200}                    # average heat gain (W)    

@@ -1,0 +1,1 @@
+{'mode':'comf', 'nhours_horizon': 24, 'hourly_steps': 4, 'timestep' : 900, 'pbuy': 0.2,'psell' : 0.05, 'delta_theta': 1, 'observer_gain': 0.2, 'time_limit': 45,  'blocked_hours' : 6}

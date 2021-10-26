@@ -1,0 +1,4 @@
+- capacità termica PDC: calcolare correlazione (ora c'è potenza nom per semplificare)
+- COP idem (ora c'è valore costante)
+- coefficienti per fancoil da aggiornare in base alla stagione
+- ugamma da aggiornare in base al fabbisogno previsto

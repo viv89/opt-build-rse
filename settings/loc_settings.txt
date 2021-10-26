@@ -1,0 +1,1 @@
+{'city': 'Piacenza', 'lat' : 45.0477, 'lon' : 9.7004,  'alt' : 45.0, 'tz'  : 'Europe/Rome'}           # time-zone
