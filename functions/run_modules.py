@@ -15,11 +15,11 @@ from modules.solarClasses         import solarProcessor
 from modules.calibrationClasses   import calipso, calicop
 from modules.optimizationClasses  import singleZoneOptimizer
 
+import pvlib
 from pvlib import pvsystem
-from pvlib.pvsystem import PVSystem
+from pvlib.pvsystem import PVSystem, Array, FixedMount
 from pvlib.location import Location
 from pvlib.modelchain import ModelChain
-
 
 #%% Calibration
 
@@ -236,17 +236,27 @@ def run_pvlib(pv_properties, loc_settings):
     surface_tilt    = pv_properties['surface_tilt']
     surface_azimuth = pv_properties['surface_azimuth']
     
+    temperature_model_parameters = pvlib.temperature.TEMPERATURE_MODEL_PARAMETERS['sapm']['open_rack_glass_glass']
+    
     pv_data = {'module_params'  : sandia_modules[module_name],
                'inverter_params': sapm_inverters[inverter_name],
                'number_modules' : number_modules,
                'surface_tilt'   : surface_tilt,
                'surface_azimuth': surface_azimuth} # pvlib uses 0=North, 90=East, 180=South, 270=West convention
     
-    pv_sys = PVSystem(surface_tilt        = pv_data['surface_tilt'], 
-                      surface_azimuth     = pv_data['surface_azimuth'],
-                      module_parameters   = pv_data['module_params'], 
-                      inverter_parameters = pv_data['inverter_params'],
-                      albedo = 0.2) 
+#    pv_sys = PVSystem(surface_tilt        = pv_data['surface_tilt'], 
+#                      surface_azimuth     = pv_data['surface_azimuth'],
+#                      module_parameters   = pv_data['module_params'], 
+#                      inverter_parameters = pv_data['inverter_params'],
+#                      albedo = 0.2) 
+    
+    mount = FixedMount(surface_tilt    = pv_data['surface_tilt'], 
+                       surface_azimuth = pv_data['surface_azimuth'])
+    array = Array(mount=mount,
+                  module_parameters=pv_data['module_params'],
+                  temperature_model_parameters=temperature_model_parameters)
+    pv_sys = PVSystem(arrays=[array], 
+                      inverter_parameters=pv_data['inverter_params'])
     
     location = Location(loc_settings['lat'], 
                         loc_settings['lon'], 
@@ -255,8 +265,11 @@ def run_pvlib(pv_properties, loc_settings):
                         name=loc_settings['city'])
     
     pv_obj = ModelChain(pv_sys, location) # creates a PV model object (including solar processing)
+
     
     return pv_data, pv_obj
+
+
 
    
 

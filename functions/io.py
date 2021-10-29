@@ -184,8 +184,13 @@ def update_future(dateTime, dfu, dfc, pv_obj, pv_data, settings, hvac_data, logs
         fdata['Q_hp_max'] = -hvac_data['Q_hp_nom_cool']
     # PV data
     number_of_modules = pv_data['number_modules']
-    pv_obj.run_model(times=fdata.index, weather=fdata[['ghi', 'dni', 'dhi', 'Te', 'vw']])
-    fdata['W_pv'] = np.array(number_of_modules*pv_obj.ac)
+#    pv_obj.run_model(times=fdata.index, weather=fdata[['ghi', 'dni', 'dhi', 'Te', 'vw']])
+#    fdata['W_pv'] = np.array(number_of_modules*pv_obj.ac)
+    loc = pv_obj.location
+    weather = loc.get_clearsky(fdata.index)
+    pv_obj.run_model(weather)
+    fdata['W_pv'] = np.array(number_of_modules*pv_obj.results.ac)
+    
     return fdata
 
 
@@ -279,8 +284,8 @@ def write_output(fdata, season):
     phi_hc_opt   = fdata['phi_hc_opt'].values       
     Q_hp_max     = fdata['Q_hp_max'].values
     fdata['a_1'] = np.zeros([H,1])
-    fdata['a_2'] = np.zeros([H,1])
-    fdata['a_3'] = np.zeros([H,1])
+    fdata['a_2'] = np.ones([H,1])
+    fdata['a_3'] = np.ones([H,1])
     fdata['a_4'] = np.zeros([H,1]) 
     freq                  = np.zeros([H,1])
     potenza_perc          = np.zeros([H,1])

@@ -51,12 +51,13 @@ pv_data, pv_obj = run_pvlib(pv_properties, loc_settings)
 #%% Create datasets
 
 # commentare le 3 righe  e scommentare le successive se eseguito test in laboratorio 
-#logs_folder = os.getcwd()+'/data/logs/winter'                        
-#fcst_folder = os.getcwd()+'/data/forecasts/'       
-#user_folder = os.getcwd()+'/data/user/'       
-logs_folder = 'D:\ML\SW\ScambioDati'  
-fcst_folder = 'D:\PrevisioniMeteo\DatiMeteo'
-user_folder = 'D:\ML\SW\ScambioDati'
+logs_folder = 'C:/Codici/Python/SEM/data/logs/winter'                        
+fcst_folder = 'C:/Codici/Python/SEM/data/weather/'       
+user_folder = 'C:/Codici/Python/SEM/data/user/' 
+     
+#logs_folder = 'D:\ML\SW\ScambioDati'  
+#fcst_folder = 'D:\PrevisioniMeteo\DatiMeteo'
+#user_folder = 'D:\ML\SW\ScambioDati'
 
 ndays = 20
 

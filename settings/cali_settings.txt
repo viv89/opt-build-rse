@@ -1,1 +1,1 @@
-{'tau': 900.0, 'n_days': 2, 'training_part': 0.75, 'order':3, 'ftol':5e-05, 'max_nfev':500}
+{'tau': 900.0, 'n_days': 3, 'training_part': 0.75, 'order':3, 'ftol':5e-05, 'max_nfev':500}

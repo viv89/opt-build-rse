@@ -322,10 +322,10 @@ class singleZoneOptimizer:
         Q_hp_max = qmax[0]*1000  # converted kW (logs) --> W (optimization)
         # COP correlation
         fcop  = k0 + np.sum(np.multiply([t1, t2],k))
-        f_cop = fcop[0]  
-        # By-pass correlation
-        Q_hp_max = Q_hp_nom
-        f_cop = 1/3.0
+        f_cop = fcop[0] 
+        # By-pass correlations
+#        Q_hp_max = Q_hp_nom
+#        f_cop = 1/3.0
         return Q_hp_max, f_cop
     
 
