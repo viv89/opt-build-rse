@@ -265,8 +265,7 @@ def run_pvlib(pv_properties, loc_settings):
                         name=loc_settings['city'])
     
     pv_obj = ModelChain(pv_sys, location) # creates a PV model object (including solar processing)
-
-    
+   
     return pv_data, pv_obj
 
 

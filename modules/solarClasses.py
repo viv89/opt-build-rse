@@ -73,13 +73,12 @@ class solarProcessor:
         clearsky = site_location.get_clearsky(times)
         # Get solar azimuth and zenith to pass to the transposition function
         solar_position = site_location.get_solarposition(times=times)
-        # Use the get_total_irradiance function to transpose the GHI to POA
-        
+        # Use the get_total_irradiance function to transpose the GHI to POA       
         POA_irradiance = irradiance.get_total_irradiance(surface_tilt=tilt,
                                                          surface_azimuth=surface_azimuth,
                                                          ghi=irrad_epw['ghi'],
-                                                         dhi=irrad_epw['dhi'],
-                                                         dni=irrad_epw['dni'],
+                                                         dhi=clearsky['dhi'],
+                                                         dni=clearsky['dni'],
                                                          solar_zenith=solar_position['apparent_zenith'],
                                                          solar_azimuth=solar_position['azimuth'],
                                                          model='isotropic',

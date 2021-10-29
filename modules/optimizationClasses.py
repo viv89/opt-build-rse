@@ -298,6 +298,7 @@ class singleZoneOptimizer:
             self.vardata.phi[t,0] = 0.5*phi_int[t] + k_s*phi_sol[t]
             self.vardata.phi[t,1] = (1 - k_a)*(0.5*phi_int[t] + (1-k_s)*phi_sol[t])
             self.vardata.phi[t,2] = k_a*(0.5*phi_int[t] + (1-k_s)*phi_sol[t])
+        return
             
     def heatPump(self, t1, t2):
         # Maximum heat flow rate

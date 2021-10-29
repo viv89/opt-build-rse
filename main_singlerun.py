@@ -31,8 +31,8 @@ fdata_old  = data_unpickle(os.getcwd() + '/tmp/output/fdata')
 
 #%%
 season = 'h' 
-#date  = datetime(2021,8,15,7,0,0)  
-date  = datetime.today()
+date  = datetime(2021,10,27,7,0,0)  
+#date  = datetime.today()
 
 hvac_data['season'] = season 
 hvac_data['theta_hs_min'] = 20
